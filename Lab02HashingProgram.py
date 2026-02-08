@@ -51,30 +51,36 @@ def generate_table():
 # Return a message to console if a new file has been added or if a file was deleted.
 def validate_hashes():
     # Load the existing hash table from the .json file
-    with open('hash_table.json', 'r') as json_file:
-        existing_hashes = json.load(json_file)
+    try:
+        with open('hash_table.json', 'r') as json_file:
+            stored_hashes = json.load(json_file)
+    except FileNotFoundError:
+        print("Hash table file not found. Please generate a hash table first.")
+        return
 
     directory = input("Enter the directory path to verify the hashes: ")
     # Call the traverse_directory function to get the current file paths and their hashes
     current_hashes = traverse_directory(directory)
 
     # Compare the current hashes with the existing hashes. Check for new files.
-    existing_hash_dict = {item['filepath']: item['hash'] for item in existing_hashes}
+    stored_hash_dict = {item['filepath']: item['hash'] for item in stored_hashes}
     current_hash_dict = {item['filepath']: item['hash'] for item in current_hashes}
 
-    # Check each file in the current hash dictionary
-    for file_path, current_hash in current_hash_dict.items():
-        if file_path not in existing_hash_dict:
-            print(f"File added: {file_path}")
-        elif existing_hash_dict[file_path] == current_hash:
-            print(f"{file_path} hash is valid.")
-        else:
-            print(f"{file_path} hash is invalid.")
-
+    # Check for new files and file name changes
     # Check for deleted files
-    for file_path in existing_hash_dict:
-        if file_path not in current_hash_dict:
-            print(f"File deleted: {file_path}")
+    # Check hash validity for existing files
+    for stored_file_path, stored_hash in stored_hash_dict.items():
+        if stored_file_path not in current_hash_dict:
+            # First check to see if file name changed.
+            if (stored_hash in current_hash_dict.values()):
+                new_file_path = next(key for key, value in current_hash_dict.items() if value == stored_hash) # Get the new file path that has the same hash as the stored file
+                print(f"File name change detected, {stored_file_path.split('/')[-1]} has been renamed to {new_file_path.split('/')[-1]}.") # Print a message indicating that a file name change has been detected, showing the old and new file names.
+            else:
+                print(f"File deleted: {stored_file_path}")
+        elif current_hash_dict[stored_file_path] == stored_hash:
+            print(f"{stored_file_path} hash is valid.")
+        else:
+            print(f"{stored_file_path} hash is invalid.")
 
 # Handles the user input, calls functions, and outputs the results to the console.
 # User options: 1. Generate a new hash table, 2. verify hashes, 3. exit the program.

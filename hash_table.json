@@ -1,14 +1,14 @@
 [
     {
-        "filepath": "Docs/hello_world.txt",
-        "hash": "866b5033009e3e3f3e40bef180e6924d937996a57fc8b5ce85090b5d14459f1f"
+        "filepath": "Docs/helloworld.txt",
+        "hash": "cf603e7740f7f7cbf211c7b240f8426c0bf602353290cdb3c9a52adbb0dfaec1"
+    },
+    {
+        "filepath": "Docs/newfile.txt",
+        "hash": "a1e9345a58e8216e11476dbc218d0ba66366894b841866ab4cf8e1c03b76643b"
     },
     {
         "filepath": "Docs/Notes.txt",
-        "hash": "0b77d7a91f8086b76edd57d484ba5f05db7750bca1996f9da770e98a1eef3828"
-    },
-    {
-        "filepath": "Docs/Test Document 1.txt",
-        "hash": "1ba43e727b38b44bf89b08054f478e7f1210605002ae5f50d1699246343ca9a4"
+        "hash": "b18aad5454826925b39427720175f7945bbcf917c0e50411f26f991ef2df2f35"
     }
 ]
