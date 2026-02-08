@@ -1,0 +1,14 @@
+[
+    {
+        "filepath": "Docs/hello_world.txt",
+        "hash": "866b5033009e3e3f3e40bef180e6924d937996a57fc8b5ce85090b5d14459f1f"
+    },
+    {
+        "filepath": "Docs/Notes.txt",
+        "hash": "0b77d7a91f8086b76edd57d484ba5f05db7750bca1996f9da770e98a1eef3828"
+    },
+    {
+        "filepath": "Docs/Test Document 1.txt",
+        "hash": "1ba43e727b38b44bf89b08054f478e7f1210605002ae5f50d1699246343ca9a4"
+    }
+]
