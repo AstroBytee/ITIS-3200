@@ -1,6 +1,8 @@
 # Author: Ryan LaCroix
 # Date: 02/08/2026
-# Description:
+# Description: This program generates a hash table for all files in a user-specified directory
+#              and saves it to a .json file. It can also verify the integrity of the files by comparing
+#              their current hashes to the stored hashes in the .json file.
 # Course: ITIS 3200: Intro to Privacy and Security
 
 import hashlib
