@@ -64,9 +64,12 @@ def validate_hashes():
     # Call the traverse_directory function to get the current file paths and their hashes
     current_hashes = traverse_directory(directory)
 
-    # Compare the current hashes with the existing hashes. Check for new files.
-    stored_hash_dict = {item['filepath']: item['hash'] for item in stored_hashes}
-    current_hash_dict = {item['filepath']: item['hash'] for item in current_hashes}
+    stored_hash_dict = {}
+    current_hash_dict = {}
+    for dictionary in stored_hashes:
+        stored_hash_dict.update({dictionary['filepath']: dictionary['hash']}) # Create a dictionary from the stored hashes for easy lookup
+    for dictionary in current_hashes:
+        current_hash_dict.update({dictionary['filepath']: dictionary['hash']}) # Create a dictionary from the current hashes for easy lookup
 
     # Check for new files and file name changes
     # Check for deleted files
