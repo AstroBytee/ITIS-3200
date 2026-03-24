@@ -25,7 +25,7 @@ TEST_CASES = {
     6: [("read", "alice", "emails.txt"), ("write", "alice", "pub.txt")], # Alice reads emails.txt then writes to pub.txt
     7: [("read", "alice", "emails.txt"), ("write", "alice", "password.txt")], # Alice reads emails.txt then writes to password.txt
     8: [("read", "alice", "emails.txt"), ("write", "alice", "emails.txt"), ("read", "alice", "username.txt"), ("write", "alice", "emails.txt")], # Alice reads emails.txt then writes to emails.txt, next she reads username.txt and writes to emails.txt
-    9: [("read", "alice", "emails.txt"), ("write", "alice", "username.txt"), ("read", "alice", "password.txt"), ("write", "alice", "password.txt")], # Alice reads emails.txt then writes to username.txt, next she reads password.txt and finally writes to password.txt
+    9: [("read", "alice", "emails.txt"), ("write", "alice", "username.txt"), ("read", "alice", "password.txt"), ("write", "alice", "emails.txt")], # Alice reads emails.txt then writes to username.txt, next she reads password.txt and finally writes to emails.txt
     10: [("read", "alice", "pub.txt"), ("write", "alice", "emails.txt"), ("read", "bob", "emails.txt")], # Alice reads pub.txt then writes to emails.txt, Bob then reads emails.txt
     11: [("read", "alice", "pub.txt"), ("write", "alice", "username.txt"), ("read", "bob", "username.txt")], # Alice reads pub.txt then writes to username.txt, Bob then reads username.txt
     12: [("read", "alice", "pub.txt"), ("write", "alice", "password.txt"), ("read", "bob", "password.txt")], # Alice reads pub.txt then writes to password.txt, Bob then reads password.txt
